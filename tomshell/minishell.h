@@ -47,6 +47,6 @@ typedef struct s_cmdtable
 // }						t_cmdtable;
 
 void					prompter();
-int						main(int argc, char **argv, char **env);
+int						main();
 
 #endif

@@ -1,4 +1,4 @@
-NAME 	=	minishell
+NAME 	= minishell
 
 OBJ	=	$(SRC:.c=.o)
 
