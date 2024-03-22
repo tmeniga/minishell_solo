@@ -2,7 +2,10 @@ NAME 	= minishell
 
 OBJ	=	$(SRC:.c=.o)
 
-SRC = main.c pipex/pipex.c pipex/utils.c pipex/error.c
+SRC = main.c \
+		linked_list.c \
+		helper_ft.c \
+		
 
 CC	=	cc
 

@@ -2,7 +2,6 @@
 # define MINISHELL_H
 
 # include "libft/libft.h"
-# include "pipex/pipex.h"
 # include <readline/history.h>
 # include <readline/readline.h>
 # include <stdio.h>
@@ -45,6 +44,29 @@ typedef struct s_cmdtable
 // 	struct s_cmdtable	*next;
 // 	struct s_cmdtable	*prev;
 // }						t_cmdtable;
+
+//# linked list functions
+t_token		*create_new_node(char *token);
+void		append_node(t_token **head, char *token);
+t_token		*create_linked_list(char *str);
+void		free_linked_list(t_token *head);
+void		print_linked_list(t_token *head);
+
+//# lexer functions
+char		*get_token(char *str, int x);
+t_token		*lexer(char *str);
+
+//# prompter
+void		prompter();
+
+//# helper functions
+int		get_next_quote(char *str,char c, int i);
+int		is_space(char c);
+int		is_quote(char c);
+int		is_operator(char c);
+char	*doublestring(char *str);
+char	*ft_strdup1(char *str, int start, int end);
+
 
 void					prompter();
 int						main();
