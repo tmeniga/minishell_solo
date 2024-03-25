@@ -5,6 +5,7 @@ OBJ	=	$(SRC:.c=.o)
 SRC = main.c \
 		linked_list.c \
 		helper_ft.c \
+		syntax_check.c \
 		
 
 CC	=	cc

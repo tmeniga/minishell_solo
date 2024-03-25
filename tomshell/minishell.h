@@ -56,6 +56,14 @@ void		print_linked_list(t_token *head);
 char		*get_token(char *str, int x);
 t_token		*lexer(char *str);
 
+//# syntax check
+int quote_checker(char *str);
+int is_str(char *str);
+int pipe_checker(char *str);
+int redirect_check(char *str);
+int	syntax_check(t_token *head);
+
+
 //# prompter
 void		prompter();
 

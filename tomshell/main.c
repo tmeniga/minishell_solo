@@ -45,8 +45,11 @@ t_token	*lexer(char *str)
 
 	head = create_linked_list(str);
 
-	syntax_check(head);
-	
+	if (!syntax_check(head))
+	{
+		free_linked_list(head);
+		exit(0);
+	}
 
 	//# check_syntax(t_token *head)
 	//# assign_type(t_token *head)
@@ -56,17 +59,31 @@ t_token	*lexer(char *str)
 
 int	syntax_check(t_token *head)
 {
-	quote_checker(); // if quote at beginning, then also at end
-	pipe_checker();	// only one pipe symbal if outside of string
-	smaller_bigger_sign();	// correct redirect signs, ...   if outside of str
-	flag_check();	// flag hast to start with - and can have nothing else than letters
+	t_token *temp;
+	t_token *start;
 	
-
-
-
-
-
-
+	start = head;
+	while (head != NULL) 
+	{
+        temp = head;
+        head = head->next;
+		if (!quote_checker(temp->content))
+		{
+			printf("SYNTAX ERROR: wrong quotes\n");
+			return (0);
+		}
+		if (!pipe_checker(temp->content))
+		{
+			printf("SYNTAX ERROR: too many pipe symbols\n");
+			return (0);
+		}
+		if (!redirect_check(temp->content))
+		{
+			printf("SYNTAX ERROR: wrong redirect syntax\n");
+			return (0);
+		}
+    }
+	return (1);
 }
 
 void	prompter()
@@ -76,7 +93,7 @@ void	prompter()
 
 	input = readline("tomshell> ");
 
-	if(!input)
+	if(!input || !ft_strncmp(input, "exit", 5))
 	{
 		printf("exiting shell\n");
 		exit(0);

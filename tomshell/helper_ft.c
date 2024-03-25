@@ -21,6 +21,7 @@ int	is_operator(char c)
 	return (0);
 }
 
+//# function returns a string containing two copies of the og string
 char	*doublestring(char *str)
 {
 	int		i;
@@ -47,7 +48,7 @@ char	*doublestring(char *str)
 	return (res);
 }
 
-//# function that duplicates a string
+//# function duplicates a string
 //# from start_pos till end_pos
 char	*ft_strdup1(char *str, int start, int end)
 {
@@ -70,6 +71,8 @@ char	*ft_strdup1(char *str, int start, int end)
 	return (res);
 }
 
+//# function returns pos of the next occurence of input char
+//# if char is not found, function return pos of last char in the str
 int	get_next_quote(char *str, char c, int i)
 {
 	if (!str[i+1])
@@ -82,4 +85,21 @@ int	get_next_quote(char *str, char c, int i)
 		i++;
 	}		
 	return (i);
+}
+
+int ft_strcmp(char *s1, char *s2) 
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+    while (s1[i] == s2[j]) 
+	{
+        if (*s1 == '\0')
+            return 0;
+        s1++;
+        s2++;
+    }
+    return (unsigned char)*s1 - (unsigned char)*s2;
 }

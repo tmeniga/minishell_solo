@@ -87,6 +87,8 @@ void	print_linked_list(t_token *head)
         temp = head;
         head = head->next;
 		printf("str %d: $%s$\n", i, temp->content);
+		if (is_str(temp->content))
+			printf("string\n");
 		i++;
     }
 }
