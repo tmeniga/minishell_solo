@@ -60,9 +60,7 @@ t_token	*lexer(char *str)
 int	syntax_check(t_token *head)
 {
 	t_token *temp;
-	t_token *start;
-	
-	start = head;
+
 	while (head != NULL) 
 	{
         temp = head;
