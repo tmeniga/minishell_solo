@@ -7,7 +7,7 @@ SRC = main.c \
 		helper_ft.c \
 		syntax_check.c \
 		signals.c \
-		
+		tokenizer.c \
 
 CC	=	cc
 

@@ -86,9 +86,25 @@ void	print_linked_list(t_token *head)
 	{
         temp = head;
         head = head->next;
-		printf("str %d: $%s$\n", i, temp->content);
+		printf("(type:%d)str %d: $%s$\n", temp->type, i, temp->content);
 		if (is_str(temp->content))
 			printf("string\n");
 		i++;
     }
+}
+
+int	count_type(t_token *head, int type_2) 
+{
+	t_token *temp;
+	int		i;
+	
+	i = 0;
+	while (head != NULL) 
+	{
+        temp = head;
+        head = head->next;
+        if (temp->type == type_2)
+			i++;
+    }
+	return (i);
 }

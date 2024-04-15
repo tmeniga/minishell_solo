@@ -35,6 +35,5 @@ void	sig_handler(int signal)
         new_prompt();
     }
     else if (signal == 3)
-        printf("signal = %d\n", signal);
-    exit (0);
+        return ;
 }

@@ -50,6 +50,8 @@ t_token	*lexer(char *str)
 		free_linked_list(head);
 		exit(0);
 	}
+	
+	type_assigner(head);
 
 	//# check_syntax(t_token *head)
 	//# assign_type(t_token *head)
@@ -61,6 +63,9 @@ int	syntax_check(t_token *head)
 {
 	t_token *temp;
 
+	if (same_type_check(head))
+		return (0);
+	
 	while (head != NULL) 
 	{
         temp = head;
@@ -91,7 +96,7 @@ void	prompter()
 
 	input = readline("tomshell> ");
 
-	if(!input || !ft_strncmp(input, "exit", 5))
+	if(!input || !ft_strncmp(input, "exit", 5) || *input == '\0')
 	{
 		printf("exiting shell\n");
 		exit(0);
@@ -118,7 +123,8 @@ void	prompter()
 int	main()
 {
 	//t_cmdtable cmdtable;
-	
+	config_signal();
+
 	while(1)
 	{
 		prompter();

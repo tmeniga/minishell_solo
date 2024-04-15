@@ -58,6 +58,8 @@ void		print_linked_list(t_token *head);
 //# lexer functions
 char		*get_token(char *str, int x);
 t_token		*lexer(char *str);
+void		type_assigner(t_token *head);
+int			get_type(char *content);
 
 //# syntax check
 int quote_checker(char *str);

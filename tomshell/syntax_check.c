@@ -75,6 +75,25 @@ int redirect_check(char *str)
     return (0);
 }
 
+//# function to check if two token of the same type
+//# are right next to each other, (trunc, append, heredoc, pipe)
+int same_type_check(t_token *head)
+{
+    t_token *temp;
+	
+	while (head != NULL) 
+	{
+        temp = head;
+        head = head->next;
+        if ((temp->type == 3 || temp->type == 4 || temp->type == 5 \
+            || temp->type == 7) && head)
+        {
+            if (temp->type == head->type)
+                return (0);
+        }
+    }
+    return (1);
+}
 
 
 
