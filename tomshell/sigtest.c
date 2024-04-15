@@ -4,6 +4,17 @@
 # include <stdio.h>
 
 void	sig_handler(int signal);
+void	config_signal(void);
+void    handle_sigint(int sig);
+
+void    new_prompt(void) 
+{
+    // You might want to clear the current line or reset input
+    printf("\n"); // Move to a new line after ^C
+    rl_on_new_line(); // Tell readline to move to a new line on re-prompt
+    rl_replace_line("", 0); // Clear the current line
+    rl_redisplay(); // Redisplay the prompt
+}
 
 void	config_signal(void)
 {
@@ -38,6 +49,11 @@ void	sig_handler(int signal)
 int main(void)
 {
     config_signal();
+
+    pid_t pid = getpid();
+    
+    // Print the process ID
+    printf("The process ID of this program is %d\n", pid);
 
     while (1)
         ;

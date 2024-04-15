@@ -43,7 +43,7 @@ t_token		*create_linked_list(char *str)
 	t_token	*head;
 	char	*token;
 	//char	*doublestr;
-	int i = 0;
+	//int i = 0;
 
 	//doublestr = doublestring(str);
 	head = NULL;
@@ -54,7 +54,7 @@ t_token		*create_linked_list(char *str)
 	{
 		append_node(&head, token);
 		printf("token %s\n", token);
-		i++;
+		//i++;
 	}
 
 	//error handling

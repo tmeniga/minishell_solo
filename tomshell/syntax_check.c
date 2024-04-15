@@ -6,7 +6,7 @@ int quote_checker(char *str)
 {
     int last_index;
 
-    last_index = strlen(str) - 1;
+    last_index = ft_strlen(str) - 1;
     if (str[0] == '\'' && str[last_index] != '\'')
         return (0);
     if (str[0] != '\'' && str[last_index] == '\'')
@@ -24,7 +24,7 @@ int is_str(char *str)
 {
     int last_index;
 
-    last_index = strlen(str) - 1;
+    last_index = ft_strlen(str) - 1;
     if (str[0] == '\'' && str[last_index] == '\'')
         return (1);
     if (str[0] == '\"' && str[last_index] == '\"')
@@ -62,11 +62,9 @@ int pipe_checker(char *str)
 //# returns 0 if syntax is incorrect
 int redirect_check(char *str)
 {
-    int i;
 
     if (is_str(str))
         return (1);
-    i = 0;
     if (str[0] != '<' || str[0] != '>')
         return (1);
     if (ft_strncmp(str, "<", 1) == 0 || ft_strncmp(str, "<<", 2) == 0 || \

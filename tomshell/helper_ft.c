@@ -31,7 +31,7 @@ char	*doublestring(char *str)
 
 	i = 0;
 	j = 0;
-	len	= 2 * strlen(str);
+	len	= 2 * ft_strlen(str);
 	res = malloc(sizeof(char) * (len + 1));
 	while (str[i])
 	{

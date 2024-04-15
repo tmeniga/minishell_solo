@@ -6,6 +6,9 @@
 # include <readline/readline.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <signal.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 # define NONE 0
 # define CMD 1
@@ -74,6 +77,11 @@ int		is_quote(char c);
 int		is_operator(char c);
 char	*doublestring(char *str);
 char	*ft_strdup1(char *str, int start, int end);
+
+//# signals
+void    new_prompt(void);
+void	config_signal(void);
+void	sig_handler(int signal);
 
 
 void					prompter();

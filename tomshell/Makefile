@@ -6,6 +6,7 @@ SRC = main.c \
 		linked_list.c \
 		helper_ft.c \
 		syntax_check.c \
+		signals.c \
 		
 
 CC	=	cc
